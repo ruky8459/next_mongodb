@@ -2,7 +2,7 @@ import DeleteBlock from './DeleteBlock'
 import PriorityDisplay from './PriorityDisplay'
 import ProgressDisplay from './ProgressDisplay'
 import StatusDisplay from './StatusDisplay'
-
+import Link from 'next/link'
 const TickCard = ({ticket}) => {
   function formatTimestamp(timestamp) {
     const options = {
@@ -30,6 +30,7 @@ const TickCard = ({ticket}) => {
           <DeleteBlock id={ticket._id}/>
         </div>
       </div>
+      <Link href={`/TicketPage/${ticket._id}`} style={{ display: "contents" }}>
       <h4>{ticket.title}</h4>
       <hr className='h-px border-0 bg-page mb-2' />
       <p className='whitespace-pre-wrap'>{ticket.description}</p>
@@ -43,6 +44,7 @@ const TickCard = ({ticket}) => {
             <StatusDisplay status={ticket.status}/>
           </div>
       </div>
+      </Link>
     </div>
   )
 }
